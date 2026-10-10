@@ -343,23 +343,23 @@ the audit, testing and safe fixes; do not stop after producing a checklist.**
 ## **Test Commands to run**
 
 ### **Backend (cmd, in AIVA-Backend-Databricks, venv active):**
-`pip install -r requirements.txt`
-`pip install pip-audit`
-`python -m pytest`
-`python -m pytest tests\test_security_vocabulary.py tests\test_security_authz.py tests\test_security_sql.py tests\test_security_core.py tests\test_security_remaining.py -v`
-`python -m pip_audit -r requirements.txt`
+- `pip install -r requirements.txt`
+- `pip install pip-audit`
+- `python -m pytest`
+- `python -m pytest tests\test_security_vocabulary.py tests\test_security_authz.py tests\test_security_sql.py tests\test_security_core.py tests\test_security_remaining.py -v`
+- `python -m pip_audit -r requirements.txt`
 
 ### **Frontend (cmd, in AIVA-Frontend-Databricks):**
-`npm ci`
-`npm run lint`
-`npm test`
-`npm run build`
-`dir /s /b dist\*.map`
-`npm audit --omit=dev`
+- `npm ci`
+- `npm run lint`
+- `npm test`
+- `npm run build`
+- `dir /s /b dist\*.map`
+- `npm audit --omit=dev`
 - Build env: npm run build needs VITE_API_BASE_URL set to a valid URL (for example in .env), and it fails if VITE_DISABLE_AUTH=true. That failure is intended.
 - Source maps: the dir command should list no files.
 
 ### **Git history (in each repo, because I can't run git):**
-`git log --all --full-history --oneline -- .env azure-app-settings.json .cert "*.pem" "*.key"`
-`git ls-files | findstr /i ".env azure-app-settings .pem .key .coverage"`
-`git check-ignore -v .env azure-app-settings.json .cert/key.pem`
+- `git log --all --full-history --oneline -- .env azure-app-settings.json .cert "*.pem" "*.key"`
+- `git ls-files | findstr /i ".env azure-app-settings .pem .key .coverage"`
+- `git check-ignore -v .env azure-app-settings.json .cert/key.pem`
